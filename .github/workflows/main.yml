@@ -2,17 +2,18 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Triggers deployment whenever you push code from Antigravity
+    branches: ["main"] # Change to your default branch name if it isn't main
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -24,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -39,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'  # Change to './build' if your project does not use Vite
+          path: './dist' # Vite outputs production builds here by default
 
       - name: Deploy to GitHub Pages
         id: deployment
