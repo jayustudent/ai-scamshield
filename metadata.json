@@ -1,0 +1,6 @@
+{
+  "name": "AI ScamShield",
+  "description": "Scam Call & Fraud Message Analyzer - detect and dissect spoofed SMS, phishing emails, scam transcripts, and WhatsApp fraud with local ML and Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
